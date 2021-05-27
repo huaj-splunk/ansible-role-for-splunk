@@ -88,7 +88,7 @@
 - name: Configure var for splunkforwarder systemd service handler
   tags: always
   set_fact:
-    splunk_service: SplunkForwarder
+    splunk_service: "{{ splunk_uf_systemd_name }}"
   when:
     - not splunk_use_initd
     - "'uf' in group_names"
