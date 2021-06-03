@@ -8,6 +8,13 @@
         state: present
       become: true
 
+    - name: Create splunk_install_path directory if it does not exist
+      ansible.builtin.file:
+        path: "{{ splunk_install_path }}"
+        state: directory
+        mode: '0755'
+    when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '16.04'
+
     - name: Add nix splunk user
       user:
         name: "{{ splunk_nix_user }}"
