@@ -13,6 +13,7 @@
         path: "{{ splunk_install_path }}"
         state: directory
         mode: '0755'
+      become: true
       when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '16.04'
 
     - name: Add nix splunk user
