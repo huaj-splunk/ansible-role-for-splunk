@@ -18,7 +18,6 @@
   delay: 10
   until: download_result is success
   run_once: true
-  become: true
 
 - name: "Unarchive Splunk {{ splunk_install_type }} package to {{ splunk_home }}"
   unarchive:
